@@ -1,11 +1,8 @@
-// Task 2 - Employee Cards Dynamic Addition
-
 let employeecount = 0; //start at 0 and use counter so each id is different 
 
-function createElement(name, position) { //created a function createelement 
+function createElement(name, position) { //created a function createElement
     
     const employeeContainer = document.getElementById("employeeContainer"); 
-    //used to find employeee by id
     let card = document.createElement("div"); 
     
     card.setAttribute("class", "employeeCard"); 
@@ -27,21 +24,33 @@ function createElement(name, position) { //created a function createelement
     });
 
     
-    //set attributes 
-
-//Test Case - Task 2
-
-createElement("SpongeBob", "Frycook");
-createElement("Squidward", "Cashier");
-createElement("Mr. Krabs", "Manager");
-
-//Task 3 - Bulk Update on Employee Cards
-
-const employeeCardNodeList = document.querySelectorAll("employeeCard"); 
-// used to select all elements with the class employee card
-const employeeCardArray = Array.from(employeeCardNodeList); //Convert  into an array 
-
-employeeCardArray.forEach(card => {
-    card.style.backgroundColor = "light pink"; //changed background color
-    card.style.border = "3px pink"; //added a border 
-});
+      //Task 5 - Inline Editing for Employee Cards
+      editbutton = document.createElement("button"); //made a Edit button
+      editbutton.textContent = "Edit information"; //Adding the text
+  
+      editbutton.addEventListener("click", (event) => { // allows edit option
+          saveButton = document.createElement("button"); 
+          saveButton.textContent = "Save information"; //allows to add info and save it 
+          card.replaceChild(saveButton, card.children[2]); 
+          card.children[1].outerHTML += `<input value="${name}"><input value="${position}">`
+      
+          saveButton.addEventListener("click", (event) => { 
+            //// Updates name and position with input values
+              card.children[0].textContent = card.children[2].value 
+              card.children[1].textContent = card.children[3].value 
+              //sets name and position to input value 
+          });
+          event.stopPropagation();
+      });
+  
+      card.appendChild(editbutton);
+      card.appendChild(removebutton); 
+      //appends remove button 
+  
+      employeeContainer.appendChild(card); 
+      //Appends the employee card to the employeeContainer
+    };
+      createElement("SpongeBob", "Frycook");
+      createElement("Squidward", "Cashier");
+      createElement("Mr. Krabs", "Manager");
+      //created elemetnts (used spongebob)

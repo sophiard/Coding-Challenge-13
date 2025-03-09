@@ -5,52 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Challenge 13</title>
     <style>
-         header, footer {
-            background-color: #1e11d7;
-            color: rgb(149, 237, 240);
-            text-align: center;
-            padding: 10px 0;
-        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Verdana', sans-serif; 
             margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            background-color: #f9e6f9; 
+        }
+        header, footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #ff99cc; 
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
         main {
-            flex: 1;
-            padding: 20px;
+            padding: 10px;
         }
         #employeeContainer {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
-        .remove-button {
-            background-color: #24e299;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
+        .employeeCard {
+            display: inline-grid;
+            text-align: center;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: rgb(246, 208, 248);
+            width: 20%;
+            font-size: 1.1rem; 
         }
-        .remove-button:hover {
-            background-color: #ed1919;
+        .employeeCard h3 {
+            font-size: 1.3rem; 
+            color: #ff3399; 
         }
-        .edit-button{
-            background-color: rgb(246, 136, 33);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .edit-button:hover{
-            background-color:rgb(225, 150, 172);
+        .employeeCard p {
+            color: #ff3399;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Sophia's Coding Challenge 13</h1>
+        <p>Interactive Dashboard</p>
+    </header>
+    <main>
+        <div id="employeeContainer"></div>
+    </main>
+    <footer>
+        <p>Hope you enjoyed!</p>
+    </footer>
+    <script src="cc_13.js"></script>
+</body>
+</html>
