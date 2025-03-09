@@ -11,7 +11,22 @@ function createElement(name, position) { //created a function createelement
     card.setAttribute("class", "employeeCard"); 
     card.setAttribute("id", `employee${employeecount}`); 
     card.innerHTML = `<h3>${name}</h3><p>${position}</p>`;
-};
+
+    //Task 4 - Employee Card Removal with Event Bubblin
+    card.addEventListener("click", () => {console.log(`Clicked ${card.id} - ${name}`)}) 
+
+    removebutton = document.createElement("button");
+    removebutton.textContent = "Remove employee"; 
+    //removes card
+    
+    removebutton.addEventListener("click", (event) => { 
+        employeeContainer.removeChild(card) 
+        //removeChild card 
+        event.stopPropagation(); 
+        // Use stopPropagation() which STOPS EVENT FROM PROPAGATING(bubbling)
+    });
+
+    
     //set attributes 
 
 //Test Case - Task 2
